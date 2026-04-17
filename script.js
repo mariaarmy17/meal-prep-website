@@ -43,12 +43,12 @@ function pesan(menuName) {
 
 // Generate menu
 const menus = [
-    { name: "Ayam Kecap", icon: "🐔",ingredients: ["4 potong ayam", "Kecap manis 2 bks", "3 siung bawang putih", "5 siung bawang merah", "1 ruas kecil jahe", "2 lembar daun salam", "Ladaku bubuk merica"], price: "Rp 25.000" },
-    { name: "Ayam Rica", icon: "🐔",ingredients: ["4 ptg ayam", "2 lembar daun salam", "1 batang serai", "1 buah jeruk nipis", "3 lbr daun sup", "5 siung bawang merah", "3 siung bawang putih","1 ruas kunyit","2 kemiri","1 ruas jahe"], price: "Rp 27.000" },
-    { name: "Ayam Asam Manis", icon: "🐔",ingredients: ["4 potong ayam", "Kecap manis 2 bks", "3 siung bawang putih", "5 siung bawang merah", "1 ruas jahe", "1 cup Saus sambal", "1 buah jeruk nipis", "2 lembar daun salam", "2 bks lada bubuk"], price: "Rp 25.500" },
-    { name: "Ayam Goreng Bawang Putih", icon: "🐔",ingredients: ["4 Ayam", "3 siung bawang putih", "Ladaku merica", "Kecap asin", "tepung maizena"], price: "Rp 28.500" },
-    { name: "Ikan Balado Tomat", icon: "🐟",ingredients: ["2 ekor ikan", "1 buah jeruk nipis", "5 buah cabai merah keriting","4 siung bawang merah", "2 siung bawang putih", "2 buah tomat", "1 ruas jahe","2 lembar daun jeruk", "1 batang serai"], price: "Rp 22.000" },
-    { name: "Ikan Kuah kuning", icon: "🐟",ingredients: ["Ikan 2 ekor", "1 buah jeruk nipis", "4 siung bawang merah", "2 siung bawang putih","2 ruas kunyit", "1 ruas jahe", "Ladaku merica", "1 buah tomat", "kemangi", "1 batang serai"], price: "Rp 22.500" },
+    { name: "Ayam Kecap", icon: "🐔",ingredients: ["4 potong ayam", "1 bungkus Desaku Marinasi"], price: "Rp 25.000" },
+    { name: "Ayam Rica", icon: "🐔",ingredients: ["4 ptg ayam","1 bungkus Desaku Marinasi"], price: "Rp 27.000" },
+    { name: "Ayam Asam Manis", icon: "🐔",ingredients: ["4 potong ayam", "1 bungkus Desaku Marinasi"], price: "Rp 25.500" },
+    { name: "Ayam Goreng Bawang Putih", icon: "🐔",ingredients: ["4 Ayam", "1 bungkus Desaku Marinasi" ], price: "Rp 28.500" },
+    { name: "Ikan Balado Tomat", icon: "🐟",ingredients: ["2 ekor ikan", "1 bungkus Desaku Marinasi"], price: "Rp 22.000" },
+    { name: "Ikan Kuah kuning", icon: "🐟",ingredients: ["Ikan 2 ekor", "1 bungkus Desaku Marinasi"], price: "Rp 22.500" },
     { name: "Telur Balado", icon: "🥚",ingredients: ["4 butir telur ayam", "3 buah cabai merah keriting", "3 siung bawang merah", "2 siung bawang putih", "2 buah tomat", "2 lembar daun salam","1 bks kecap","9 cabai rawit"], price: "Rp 18.000" },
     { name: "Capcay", icon: "🥦", image: "images/capcay.jpeg", ingredients: ["sawi putih", "1 wortel","4 siung bawang merah", "2 siung bawang putih", "5 bakso", "1 bks lada"], price: "Rp 15.000" },
     { name: "Cah Kangkung", icon: "🥬",ingredients: ["1 ikat kangkung", "2 siung bawang putih", "3 cabai", "3 siung bawang merah"], price: "Rp 13.000" },
