@@ -52,10 +52,10 @@ const menus = [
     { name: "Telur Balado", icon: "🥚",ingredients: ["4 butir telur ayam", "3 buah cabai merah keriting", "3 siung bawang merah", "2 siung bawang putih", "2 buah tomat", "2 lembar daun salam","1 bks kecap","9 cabai rawit"], price: "Rp 18.000" },
     { name: "Capcay", icon: "🥦", image: "images/capcay.jpeg", ingredients: ["sawi putih", "1 wortel","4 siung bawang merah", "2 siung bawang putih", "5 bakso", "1 bks lada"], price: "Rp 15.000" },
     { name: "Cah Kangkung", icon: "🥬",ingredients: ["1 ikat kangkung", "2 siung bawang putih", "3 cabai", "3 siung bawang merah"], price: "Rp 13.000" },
-    { name: "Daun Ubi ", icon: "🥥", image: "images/Daun%20Ubi.jpeg", ingredients: ["1 ikat daun ubi", "1 bks bunga pepaya", "4 siung bawang merah", "2 siung bawang putih", "3 buah cabai", "1 bks terasi"], price: "Rp 14.500" },
+    { name: "Daun Ubi ", icon: "🥥", image: "images/Daun%20Ubi+Bunga%20Pepaya.jpeg", ingredients: ["1 ikat daun ubi", "1 bks bunga pepaya", "4 siung bawang merah", "2 siung bawang putih", "3 buah cabai", "1 bks terasi"], price: "Rp 14.500" },
     { name: "Tempe Orek", icon: "🍄",ingredients: ["1 papan tempe", "5 siung bawang merah", "2 siung bawang putih", "3 cabai keriting merah","2 bungkus kecap","2 buah tomat"], price: "Rp 15.000" },
     { name: "Paria + Telur", icon: "🥒", image: "images/Buncis%20Telur.jpeg", ingredients: ["3 buah paria", "1 butir telur", "2 buah cabai merah", "2 siung bawang putih", "3 siung bawang merah", "1 sachet kunyit bubuk"], price: "Rp 15.000" },
-    { name: "Buncis + Bunga Pepaya", icon: "🥬", image: "images/Buncis+Bunga%20Pepaya.jpeg", ingredients: ["Buncis", "Bunga papaya", "3 siung bawang merah", "2 siung bawang putih", "3 buah cabai merah"], price: "Rp 17.000" },
+    { name: "Buncis + Bunga Pepaya", icon: "🥬", ingredients: ["Buncis", "Bunga papaya", "3 siung bawang merah", "2 siung bawang putih", "3 buah cabai merah"], price: "Rp 17.000" },
     { name: "Bakwan Jagung", icon: "🌽", image: "images/Bakwan%20Jagung.jpeg", ingredients: ["2 buah jagung", "1 buah wortel", "tepung sajiku", "2 siung bawang putih"], price: "Rp 15.000" },
     { name: "Ubi Rebus", icon: "🥔", image: "images/UBI%20Rebus.jpeg", ingredients: ["6 buah Ubi ungu"], price: "Rp 12.000"}
 ];
@@ -67,9 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
         card.className = 'card';
         
         const ingredientsList = menu.ingredients.map(ing => `<li>${ing}</li>`).join('');
+        const imageHtml = menu.image ? `<img src="${menu.image}" alt="${menu.name}">` : '';
         
         card.innerHTML = `
-            <img src="${menu.image}" alt="${menu.name}">
+            ${imageHtml}
             <h3>${menu.icon} ${menu.name}</h3>
             <p>Bahan:</p>
             <ul>${ingredientsList}</ul>
