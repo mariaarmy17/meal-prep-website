@@ -6,8 +6,10 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(180deg, #eef8f0 0%, #ffffff 100%);
+    color: #23322f;
+    background: radial-gradient(circle at top left, rgba(72, 158, 76, 0.12), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(40, 111, 58, 0.10), transparent 28%),
+                linear-gradient(180deg, #f5fbf6 0%, #ffffff 100%);
     min-height: 100vh;
 }
 
@@ -19,11 +21,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(76, 175, 80, 0.95);
-    color: white;
+    background: rgba(255, 255, 255, 0.95);
+    color: #28512f;
     padding: 18px 24px;
-    box-shadow: 0 10px 30px rgba(39, 121, 62, 0.18);
-    border-bottom: 1px solid rgba(255,255,255,0.22);
+    box-shadow: 0 18px 45px rgba(68, 102, 70, 0.12);
+    border-bottom: 1px solid rgba(75, 141, 84, 0.15);
+    backdrop-filter: blur(12px);
 }
 
 .nav-logo {
@@ -78,18 +81,26 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #28512f;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     transition: color 0.3s, transform 0.3s;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
 }
 
 nav a:hover {
-    color: #e8f5e8;
-    transform: scale(1.05);
+    color: #4caf50;
+    transform: translateY(-1px);
+}
+
+nav .nav-logo h2 {
+    font-size: 1.2em;
+}
+
+.nav-logo {
+    gap: 12px;
 }
 
 nav a i {
@@ -104,24 +115,26 @@ nav a:hover {
 .hero {
     position: relative;
     text-align: center;
-    padding: 100px 20px 80px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.88) 55%), url('images/salad.webp');
+    padding: 100px 20px 90px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.92) 60%), url('images/salad.webp');
     background-size: cover;
     background-position: center;
     color: #1d3f27;
     animation: fadeIn 1.5s ease-in;
     overflow: hidden;
+    border-radius: 0 0 48px 48px;
+    box-shadow: 0 24px 70px rgba(32, 101, 54, 0.12);
 }
 
 .hero::after {
     content: '';
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    background: rgba(76, 175, 80, 0.12);
-    top: 20px;
-    right: -90px;
+    background: rgba(76, 175, 80, 0.16);
+    top: 30px;
+    right: -110px;
     z-index: 0;
 }
 
@@ -142,20 +155,22 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 3.2em;
-    margin-bottom: 12px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 3.4em;
+    margin-bottom: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.05;
     z-index: 1;
 }
 
 .hero p {
     font-size: 1.15em;
     margin-bottom: 40px;
-    max-width: 620px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
     z-index: 1;
+    color: #3b4f3a;
 }
 
 .features {
@@ -197,16 +212,16 @@ nav a:hover {
 
 .cta-button {
     display: inline-block;
-    padding: 15px 36px;
-    background: linear-gradient(135deg, #43b567, #1f7f49);
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #45b261, #1f7f49);
     color: white;
     text-decoration: none;
     border-radius: 999px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1em;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     margin-top: 20px;
-    box-shadow: 0 18px 40px rgba(53, 124, 72, 0.18);
+    box-shadow: 0 20px 48px rgba(44, 109, 61, 0.22);
 }
 
 .cta-button:hover {
@@ -285,44 +300,93 @@ nav a:hover {
 }
 /* MENU */
 .menu {
-    padding: 80px 20px 60px;
+    padding: 90px 20px 70px;
     text-align: center;
-    background: #f7fdf7;
+    background: #edf9f0;
 }
 
 .menu h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
-    color: #333;
+    font-size: 2.2em;
+    margin-bottom: 38px;
+    color: #22432f;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(260px, 1fr));
-    gap: 28px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #28512f;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.menu-category h3::before {
+    content: "🌿";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -28px;
+    font-size: 1.4em;
+}
+
+.menu-category h3::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(135deg, #4caf50, #1f7f49);
+    display: block;
+    margin: 12px auto 0;
+    border-radius: 999px;
+}
+
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+}
+
 .card {
-    background: linear-gradient(180deg, #ffffff 0%, #f6fcf7 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #eff6ef 100%);
     border-radius: 28px;
-    box-shadow: 0 24px 60px rgba(7, 74, 42, 0.08);
-    padding: 22px;
+    box-shadow: 0 18px 40px rgba(29, 88, 44, 0.12);
+    padding: 24px;
     transition: transform 0.35s, box-shadow 0.35s;
     overflow: hidden;
     animation: fadeInCard 0.6s ease-out;
-    border: 1px solid rgba(76, 175, 80, 0.18);
+    border: 1px solid rgba(109, 179, 114, 0.22);
     display: flex;
     flex-direction: column;
     min-height: 420px;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #3db060, #2f6f3e);
 }
 
 @keyframes fadeInCard {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(24px);
     }
     to {
         opacity: 1;
@@ -332,8 +396,8 @@ nav a:hover {
 
 .card:hover {
     border-color: #3a9d4f;
-    transform: translateY(-6px);
-    box-shadow: 0 28px 60px rgba(30, 88, 52, 0.14);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 68px rgba(30, 88, 52, 0.17);
 }
 
 .card img {
@@ -346,15 +410,15 @@ nav a:hover {
 }
 
 .card h3 {
-    margin: 8px 0 10px;
-    font-size: 1.25em;
-    color: #20492f;
+    margin: 14px 0 8px;
+    font-size: 1.35em;
+    color: #1f4a2e;
 }
 
 .card p {
-    color: #666;
-    margin: 8px 0;
-    font-size: 0.9em;
+    color: #556b55;
+    margin: 10px 0 4px;
+    font-size: 0.95em;
 }
 
 .card span {
@@ -366,17 +430,17 @@ nav a:hover {
 }
 
 .card button {
-    padding: 14px 18px;
-    background: linear-gradient(135deg, #37a35e, #255b35);
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #38b16a, #236037);
     color: white;
     border: none;
-    border-radius: 18px;
+    border-radius: 20px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95em;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     margin-top: auto;
-    box-shadow: 0 10px 18px rgba(37, 123, 75, 0.2);
+    box-shadow: 0 14px 24px rgba(34, 96, 52, 0.18);
 }
 
 .card button:hover {
@@ -388,8 +452,8 @@ nav a:hover {
     list-style: none;
     padding: 0;
     margin: 8px 0 16px;
-    column-count: 2;
-    column-gap: 18px;
+    column-count: 1;
+    column-gap: 0;
 }
 
 .card li {
