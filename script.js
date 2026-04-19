@@ -44,7 +44,7 @@ function pesan(menuName) {
 // Generate menu
 const menus = [
     { name: "Ayam", icon: "🐔", category: "protein", ingredients: ["4 potong ayam", "1 bungkus Desaku Marinasi"], price: "Rp 25.000" },
-    { name: "Ikan ", icon: "🐟", category: "protein", ingredients: ["6 ekor ikan", "1 bungkus Desaku Marinasi"], price: "Rp 15.000" },
+    { name: "Ikan ", icon: "🐟", category: "protein", ingredients: ["3 porsi ikan", "1 bungkus Desaku Marinasi"], price: "Rp 15.000" },
     { name: "Telur Balado", icon: "🥚", category: "protein", ingredients: ["4 butir telur ayam rebus", "3 cabe kriting","3 siung bawang merah","2 siung bawang putih","2 buah tomat","2 lbr daun salam","1 bungkus kecap","2 cabe rawit"], price: "Rp 18.000" },
     { name: "Tempe", icon: "🍄", category: "protein", ingredients: ["1 papan tempe", "1 bungkus Desaku Marinasi"], price: "Rp 10.000" },
     { name: "Tahu", icon: "🧀", category: "protein", ingredients: ["1 bungkus tahu", "1 bungkus Desaku Marinasi"], price: "Rp 10.000" },
