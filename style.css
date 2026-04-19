@@ -332,15 +332,6 @@ nav a:hover {
     padding-bottom: 14px;
 }
 
-.menu-category h3::before {
-    content: "🌿";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -28px;
-    font-size: 1.4em;
-}
-
 .menu-category h3::after {
     content: "";
     width: 70px;
