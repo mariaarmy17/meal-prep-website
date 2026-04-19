@@ -44,11 +44,11 @@ function pesan(menuName) {
 // Generate menu
 const menus = [
     { name: "Ayam", icon: "🐔", category: "protein", ingredients: ["4 potong ayam", "1 bungkus Desaku Marinasi"], price: "Rp 25.000" },
-    { name: "Ikan ", icon: "🐟", category: "protein", ingredients: ["2 ekor ikan", "1 bungkus Desaku Marinasi"], price: "Rp 15.000" },
+    { name: "Ikan ", icon: "🐟", category: "protein", ingredients: ["3 ekor ikan", "1 bungkus Desaku Marinasi"], price: "Rp 15.000" },
     { name: "Telur Balado", icon: "🥚", category: "protein", ingredients: ["4 butir telur ayam rebus", "3 cabe kriting","3 siung bawang merah","2 siung bawang putih","2 buah tomat","2 lbr daun salam","1 bungkus kecap","2 cabe rawit"], price: "Rp 18.000" },
     { name: "Tempe", icon: "🍄", category: "protein", ingredients: ["1 papan tempe", "1 bungkus Desaku Marinasi"], price: "Rp 10.000" },
     { name: "Tahu", icon: "🧀", category: "protein", ingredients: ["1 bungkus tahu", "1 bungkus Desaku Marinasi"], price: "Rp 10.000" },
-    { name: "Capcay", icon: "🥦", category: "vegetable", image: "images/capcay.jpeg", ingredients: ["sawi putih", "1 wortel","4 siung bawang merah", "2 siung bawang putih", "3 bakso", "1 bks lada"], price: "Rp 13.000" },
+    { name: "Capcay", icon: "🥦", category: "vegetable", image: "images/capcay.jpeg", ingredients: ["sawi putih", "1 wortel","4 siung bawang merah", "2 siung bawang putih", "3 bakso", "1 bks lada"], price: "Rp 15.000" },
     { name: "Cah Kangkung", icon: "🥬", category: "vegetable", ingredients: ["3 ikat kangkung", "2 siung bawang putih", "3 cabai", "3 siung bawang merah"], price: "Rp 13.000" },
     { name: "Daun Ubi", icon: "🥥", category: "vegetable", image: "images/Daun%20Ubi+Bunga%20Pepaya.jpeg", ingredients: ["1 ikat daun ubi", "1 bks bunga pepaya", "4 siung bawang merah", "2 siung bawang putih", "3 buah cabai", "1 bks terasi", "Catatan: langsung direbus"], price: "Rp 14.500" },
     { name: "Paria + Telur", icon: "🥒", category: "vegetable", image: "images/Buncis%20Telur.jpeg", ingredients: ["3 buah paria", "1 butir telur", "2 buah cabai merah", "2 siung bawang putih", "3 siung bawang merah", "1 sachet kunyit bubuk"], price: "Rp 15.000" },
