@@ -140,15 +140,34 @@ function updateCartDisplay() {
         total += itemTotal;
         itemsHtml += `
             <div class="cart-item">
-                <span>${item.name} (x${item.quantity})</span>
-                <span>Rp ${itemTotal.toLocaleString()}</span>
-                <button onclick="removeFromCart(${index})">Hapus</button>
+                <div class="item-info">
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-price">Rp ${item.price.toLocaleString()}</span>
+                </div>
+                <div class="quantity-controls">
+                    <button onclick="changeQuantity(${index}, -1)" class="qty-btn">-</button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button onclick="changeQuantity(${index}, 1)" class="qty-btn">+</button>
+                </div>
+                <div class="item-total">
+                    <span>Rp ${itemTotal.toLocaleString()}</span>
+                    <button onclick="removeFromCart(${index})" class="remove-btn">🗑️</button>
+                </div>
             </div>
         `;
     });
 
     cartItems.innerHTML = itemsHtml;
     cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+}
+
+function changeQuantity(index, change) {
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+    updateCartCount();
+    updateCartDisplay();
 }
 
 function removeFromCart(index) {
