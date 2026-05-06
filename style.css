@@ -539,6 +539,10 @@ footer {
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }    
     
+    .cart-icon {
+        display: none; /* Hide cart icon on mobile */
+    }
+    
     .features {
         flex-direction: column;
         gap: 20px;
@@ -570,4 +574,147 @@ footer {
         height: 45px;
         font-size: 1em;
     }
+}
+
+/* CART ICON */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+    color: #28512f;
+    font-size: 1.5em;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+#cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-total {
+    text-align: right;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+/* ORDER FORM */
+#order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#order-form label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#order-form input,
+#order-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#order-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#order-form button {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #38b16a, #236037);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* PO SYSTEM */
+.po-system {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.po-system h3 {
+    color: #28512f;
+    margin-bottom: 10px;
+}
+
+.po-system p {
+    color: #555;
+    line-height: 1.6;
 }

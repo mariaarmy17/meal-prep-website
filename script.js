@@ -1,5 +1,8 @@
 const waNumber = "6281339245813"; // ganti dengan nomor WhatsApp Anda tanpa tanda + atau 0
 
+// Cart functionality
+let cart = [];
+
 // Hamburger menu toggle
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
@@ -17,6 +20,68 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         });
+    });
+
+    // Cart modal functionality
+    const cartIcon = document.getElementById('cart-icon');
+    const cartModal = document.getElementById('cart-modal');
+    const closeCart = document.getElementById('close-cart');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    cartIcon.addEventListener('click', function() {
+        updateCartDisplay();
+        cartModal.style.display = 'block';
+    });
+
+    closeCart.addEventListener('click', function() {
+        cartModal.style.display = 'none';
+    });
+
+    checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+            alert('Keranjang kosong. Silakan tambah menu terlebih dahulu.');
+            return;
+        }
+        cartModal.style.display = 'none';
+        document.getElementById('order-modal').style.display = 'block';
+    });
+
+    // Order form modal
+    const orderModal = document.getElementById('order-modal');
+    const closeOrder = document.getElementById('close-order');
+    const orderForm = document.getElementById('order-form');
+
+    closeOrder.addEventListener('click', function() {
+        orderModal.style.display = 'none';
+    });
+
+    orderForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const deliveryDate = document.getElementById('delivery-date').value;
+        const notes = document.getElementById('notes').value;
+
+        const orderText = generateOrderText(name, phone, address, deliveryDate, notes);
+        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(orderText)}`;
+        window.open(waUrl, '_blank');
+
+        // Reset form and cart
+        orderForm.reset();
+        cart = [];
+        updateCartCount();
+        orderModal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+        if (event.target === orderModal) {
+            orderModal.style.display = 'none';
+        }
     });
 });
 
@@ -39,6 +104,79 @@ function pesan(menuName) {
     const text = encodeURIComponent(`Halo, saya ingin memesan ${menuName}. Mohon bantuannya.`);
     const waUrl = `https://wa.me/${waNumber}?text=${text}`;
     window.open(waUrl, '_blank');
+}
+
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price: parseInt(price.replace(/[^\d]/g, '')), quantity: 1 });
+    }
+    updateCartCount();
+    alert(`${name} ditambahkan ke keranjang!`);
+}
+
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').textContent = count;
+}
+
+function updateCartDisplay() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Keranjang kosong</p>';
+        cartTotal.textContent = 'Rp 0';
+        return;
+    }
+
+    let itemsHtml = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        itemsHtml += `
+            <div class="cart-item">
+                <span>${item.name} (x${item.quantity})</span>
+                <span>Rp ${itemTotal.toLocaleString()}</span>
+                <button onclick="removeFromCart(${index})">Hapus</button>
+            </div>
+        `;
+    });
+
+    cartItems.innerHTML = itemsHtml;
+    cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartCount();
+    updateCartDisplay();
+}
+
+function generateOrderText(name, phone, address, deliveryDate, notes) {
+    let text = `Halo, saya ingin memesan:\n\n`;
+    
+    cart.forEach(item => {
+        text += `- ${item.name} (x${item.quantity}) - Rp ${(item.price * item.quantity).toLocaleString()}\n`;
+    });
+    
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    text += `\nTotal: Rp ${total.toLocaleString()}\n\n`;
+    text += `Nama: ${name}\n`;
+    text += `No. WA: ${phone}\n`;
+    text += `Alamat: ${address}\n`;
+    text += `Tanggal Pengiriman: ${deliveryDate}\n`;
+    if (notes) {
+        text += `Catatan: ${notes}\n`;
+    }
+    
+    text += `\nMohon konfirmasi pesanan saya. Terima kasih!`;
+    
+    return text;
 }
 
 // Generate menu
@@ -87,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Bahan:</p>
                 <ul>${ingredientsList}</ul>
                 <span>${menu.price}</span>
-                <button onclick="pesan('${menu.name}')">Pesan via WA</button>
+                <button onclick="addToCart('${menu.name}', '${menu.price}')">Tambah ke Keranjang</button>
             `;
             
             grid.appendChild(card);

@@ -26,6 +26,10 @@
             <span></span>
             <span></span>
         </div>
+        <div class="cart-icon" id="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
         <ul class="nav-menu" id="nav-menu">
             <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
             <li><a href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
@@ -51,6 +55,10 @@
                 <i class="fas fa-utensils"></i>
                 <span>Hidangan Lezat</span>
             </div>
+        </div>
+        <div class="po-system">
+            <h3>Sistem Pre-Order (PO)</h3>
+            <p>Pesan minimal 1 hari sebelumnya untuk pengiriman. Pilih menu favorit Anda, tambahkan ke keranjang, isi form pemesanan, dan konfirmasi via WhatsApp untuk pengiriman tepat waktu!</p>
         </div>
         <a href="#menu" class="cta-button">Lihat Menu Kami</a>
     </section>
@@ -81,6 +89,45 @@
     <button id="backToTop" class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-cart">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">Rp 0</span></strong>
+            </div>
+            <button id="checkout-btn" class="cta-button">Lanjut ke Form Pemesanan</button>
+        </div>
+    </div>
+
+    <!-- ORDER FORM MODAL -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-order">&times;</span>
+            <h2>Form Pemesanan</h2>
+            <form id="order-form">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" required>
+
+                <label for="phone">Nomor WhatsApp:</label>
+                <input type="tel" id="phone" required>
+
+                <label for="address">Alamat Pengiriman:</label>
+                <textarea id="address" required></textarea>
+
+                <label for="delivery-date">Tanggal Pengiriman:</label>
+                <input type="date" id="delivery-date" required>
+
+                <label for="notes">Catatan Tambahan:</label>
+                <textarea id="notes"></textarea>
+
+                <button type="submit" class="cta-button">Pesan via WhatsApp</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
