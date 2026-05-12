@@ -613,12 +613,16 @@ footer {
     background: #ff4444;
     color: white;
     border-radius: 50%;
-    padding: 2px 4px;
-    font-size: 0.75em;
+    padding: 1px 3px;
+    font-size: 0.65em;
     font-weight: bold;
-    min-width: 16px;
+    min-width: 14px;
     text-align: center;
     line-height: 1.2;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* MODAL */
