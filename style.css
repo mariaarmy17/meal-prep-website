@@ -7,9 +7,9 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #23322f;
-    background: radial-gradient(circle at top left, rgba(72, 158, 76, 0.12), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(40, 111, 58, 0.10), transparent 28%),
-                linear-gradient(180deg, #f5fbf6 0%, #ffffff 100%);
+    background: radial-gradient(circle at top left, rgba(208, 250, 217, 0.35), transparent 25%),
+                radial-gradient(circle at bottom right, rgba(198, 243, 216, 0.35), transparent 28%),
+                linear-gradient(180deg, #f7fff8 0%, #e6f6ea 40%, #f8fff9 100%);
     min-height: 100vh;
 }
 
@@ -21,11 +21,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     color: #28512f;
-    padding: 18px 24px;
-    box-shadow: 0 18px 45px rgba(68, 102, 70, 0.12);
-    border-bottom: 1px solid rgba(75, 141, 84, 0.15);
+    padding: 18px 26px;
+    box-shadow: 0 18px 45px rgba(68, 102, 70, 0.18);
+    border: 1px solid rgba(79, 159, 90, 0.16);
+    border-radius: 30px;
+    margin: 12px 18px 0;
     backdrop-filter: blur(12px);
 }
 
@@ -76,27 +78,43 @@ nav h2 {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 24px;
     margin: 0;
+    align-items: center;
 }
 
 nav a {
     color: #28512f;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s, transform 0.3s, background 0.3s;
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
 }
 
 nav a:hover {
-    color: #4caf50;
+    color: #1f5b26;
     transform: translateY(-1px);
+    background: rgba(72, 158, 76, 0.12);
+}
+
+nav ul li:last-child a {
+    background: rgba(74, 169, 89, 0.14);
+    border: 1px solid rgba(74, 169, 89, 0.18);
+    padding: 12px 18px;
+    position: relative;
 }
 
 nav .nav-logo h2 {
     font-size: 1.2em;
+}
+
+.nav-logo-img {
+    width: 46px;
+    height: 46px;
 }
 
 .nav-logo {
@@ -107,23 +125,28 @@ nav a i {
     font-size: 1.1em;
 }
 
-nav a:hover {
-    color: #e8f5e8;
-}
-
 /* HERO */
 .hero {
     position: relative;
     text-align: center;
     padding: 100px 20px 90px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.92) 60%), url('images/salad.webp');
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.92) 0%, transparent 20%),
+                      radial-gradient(circle at bottom right, rgba(233, 255, 236, 0.75) 0%, transparent 22%),
+                      linear-gradient(180deg, rgba(255,255,255,0.88), rgba(229, 249, 232, 0.78)),
+                      url('images/ikan .jpeg');
     background-size: cover;
     background-position: center;
+    background-blend-mode: overlay, overlay, normal;
+    border-bottom: 1px solid rgba(152, 204, 149, 0.18);
     color: #1d3f27;
     animation: fadeIn 1.5s ease-in;
     overflow: hidden;
     border-radius: 0 0 48px 48px;
-    box-shadow: 0 24px 70px rgba(32, 101, 54, 0.12);
+    box-shadow: 0 28px 90px rgba(32, 101, 54, 0.16);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero::after {
@@ -136,6 +159,19 @@ nav a:hover {
     top: 30px;
     right: -110px;
     z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.0) 0%, rgba(0,0,0,0.08) 70%);
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: multiply;
 }
 
 @keyframes fadeIn {
@@ -154,13 +190,197 @@ nav a:hover {
     z-index: 1;
 }
 
-.hero h1 {
-    font-size: 3.4em;
-    margin-bottom: 14px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    line-height: 1.05;
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
     z-index: 1;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.95);
+    color: #2f6f3f;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    box-shadow: 0 14px 30px rgba(51, 121, 62, 0.1);
+}
+
+.hero h1 {
+    font-size: 3.6em;
+    margin-bottom: 18px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.05;
+    max-width: 620px;
+}
+
+.hero p {
+    font-size: 1.15em;
+    margin-bottom: 32px;
+    max-width: 620px;
+    margin-left: 0;
+    margin-right: 0;
+    color: #3b4f3a;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 38px;
+}
+
+.secondary-button {
+    display: inline-block;
+    padding: 18px 40px;
+    color: #28512f;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 2px solid rgba(66, 131, 62, 0.18);
+    background: rgba(255,255,255,0.9);
+    font-weight: 700;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+
+.secondary-button:hover {
+    background: #f4fdf3;
+    color: #1f5f2d;
+    transform: translateY(-2px);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-card {
+    width: 100%;
+    max-width: 430px;
+    border-radius: 34px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(242, 255, 245, 1) 100%);
+    box-shadow: 0 50px 100px rgba(29, 88, 44, 0.14);
+    border: 1px solid rgba(139, 188, 121, 0.22);
+    position: relative;
+}
+
+.hero-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, rgba(34, 84, 32, 0.08));
+    pointer-events: none;
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(76, 175, 80, 0.12);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 360px;
+}
+
+.hero-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 360px;
+}
+
+.hero-card-info {
+    padding: 24px;
+}
+
+.hero-card-label {
+    display: inline-block;
+    background: #dff2e3;
+    color: #2f6f3f;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.hero-card-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    color: #1f4f2e;
+}
+
+.hero-card-info p {
+    color: #556b55;
+    line-height: 1.7;
+}
+
+.po-system {
+    max-width: 1200px;
+    margin: 36px auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(234, 252, 236, 0.96) 100%);
+    background-image: radial-gradient(circle at top left, rgba(236, 250, 238, 0.85) 0%, transparent 30%),
+                      linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(234, 252, 236, 0.96) 100%);
+    padding: 28px 30px;
+    border-radius: 30px;
+    box-shadow: 0 24px 50px rgba(24, 98, 35, 0.08);
+    border: 1px solid rgba(110, 178, 113, 0.14);
+}
+
+.po-system h3 {
+    margin-top: 0;
+    font-size: 1.55em;
+    color: #2f6f3f;
+}
+
+.po-system p {
+    margin: 10px 0 0;
+    color: #4c644d;
+}
+
+.kontak {
+    text-align: left;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5fff2, #dff7e6);
+    border-top: 1px solid rgba(118, 177, 112, 0.2);
+}
+
+.kontak .contact-info {
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.98);
+    padding: 32px;
+    border-radius: 28px;
+    box-shadow: 0 24px 50px rgba(38, 97, 44, 0.08);
+    border: 1px solid rgba(126, 182, 118, 0.16);
+}
+
+.kontak p {
+    margin: 0.6em 0;
+    color: #385b38;
 }
 
 .hero p {
@@ -252,13 +472,30 @@ nav a:hover {
 .menu {
     padding: 90px 20px 70px;
     text-align: center;
-    background: #edf9f0;
+    background: linear-gradient(180deg, #f7fff3 0%, #e6f7ea 40%, #f3fff6 100%);
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.80) 0%, transparent 20%),
+                      radial-gradient(circle at bottom right, rgba(224, 251, 233, 0.8) 0%, transparent 18%),
+                      linear-gradient(180deg, #f7fff3 0%, #e6f7ea 40%, #f3fff6 100%);
 }
 
 .menu h2 {
-    font-size: 2.2em;
+    font-size: 2.4em;
     margin-bottom: 38px;
-    color: #22432f;
+    color: #1f5431;
+    letter-spacing: 0.06em;
+}
+
+.menu-category {
+    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(233, 251, 234, 0.96) 100%);
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 28px 70px rgba(38, 97, 44, 0.08);
+    border: 1px solid rgba(132, 189, 115, 0.18);
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.8) 0%, transparent 30%);
+}
+
+.category-grid {
+    justify-content: space-between;
 }
 
 .container {
@@ -300,18 +537,19 @@ nav a:hover {
 }
 
 .card {
-    background: linear-gradient(180deg, #ffffff 0%, #eff6ef 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(239, 246, 239, 0.97) 100%);
     border-radius: 28px;
-    box-shadow: 0 18px 40px rgba(29, 88, 44, 0.12);
+    box-shadow: 0 18px 40px rgba(29, 88, 44, 0.14);
     padding: 24px;
     transition: transform 0.35s, box-shadow 0.35s;
     overflow: hidden;
     animation: fadeInCard 0.6s ease-out;
-    border: 1px solid rgba(109, 179, 114, 0.22);
+    border: 1px solid rgba(138, 187, 123, 0.24);
     display: flex;
     flex-direction: column;
     min-height: 420px;
     position: relative;
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.9) 0%, transparent 28%);
 }
 
 .card::before {
@@ -347,7 +585,7 @@ nav a:hover {
     object-fit: contain;
     border-radius: 10px;
     margin-bottom: 15px;
-    background: #f9f9f9;
+    background: linear-gradient(135deg, #f7fcf6 0%, #e8f6eb 100%);
 }
 
 /* Specific styling for fish image to show only the fish part */
@@ -442,23 +680,7 @@ nav a:hover {
     color: white;
 }
 
-/* KONTAK */
-.kontak {
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #e8f5e8, #d4edda);
-    color: #333;
-}
 
-.kontak h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.kontak p {
-    font-size: 1.1em;
-    margin: 10px 0;
-}
 
 /* FOOTER */
 footer {
@@ -594,6 +816,27 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-card {
+        max-width: 100%;
+    }
+
+    .hero-card img {
+        height: 260px;
     }
 }
 
