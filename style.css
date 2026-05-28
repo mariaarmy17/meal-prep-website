@@ -733,6 +733,7 @@ footer {
     nav {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     
     .hamburger {
@@ -764,9 +765,13 @@ footer {
     .cart-icon {
         display: flex;
         align-items: center;
+        justify-content: center;
         color: #28512f;
         font-size: 1.4em;
         z-index: 110;
+        margin-right: 10px;
+        cursor: pointer;
+        position: relative;
     }
     
     .features {
