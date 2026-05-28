@@ -266,12 +266,12 @@ nav a i {
 
 .hero-card {
     width: 100%;
-    max-width: 100%;
+    max-width: 460px;
     border-radius: 24px;
     overflow: hidden;
-    background: none;
-    box-shadow: none;
-    border: none;
+    background: #fff;
+    box-shadow: 0 24px 58px rgba(17, 84, 40, 0.12);
+    border: 1px solid rgba(138, 188, 121, 0.22);
     position: relative;
 }
 
@@ -284,8 +284,8 @@ nav a i {
 .hero-card .hero-banner {
     width: 100%;
     display: block;
-    object-fit: cover;
-    height: 320px;
+    height: auto;
+    object-fit: contain;
 }
 
 .hero-card-info {
